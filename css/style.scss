@@ -1,0 +1,86 @@
+
+/* Variables */
+
+	$color1: #f5f5f5;
+	$border-color-1: #5da3e8;
+	$border-color-2: #cccccc;
+
+/* Helpers */
+
+	/* apply a natural box layout model to all elements */
+	*, *:before, *:after {
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+	}
+
+	.cf:before,
+	.cf:after {
+	    content: " "; /* 1 */
+	    display: table; /* 2 */
+	}
+
+	.cf:after {
+	    clear: both;
+	}
+
+/* Styles */
+
+
+	.grid {
+		@extend .cf;
+		margin: 0 0 40px 0;
+		padding: 0;
+	}
+
+	.grid--bordered {
+		border: 1px solid $border-color-1;
+	}
+
+	.grid--framed {
+		@extend .grid--bordered;
+		padding: 20px;
+	}
+
+	.grid--1 {
+		@extend .grid;
+		@extend .grid--framed;
+		max-width: 500px;
+		margin: 150px auto 0;
+	}
+
+		.grid__box {
+			float: left;
+			width: 100px;
+			height: 70px;
+			margin: 0 10px 10px 0;
+
+			@extend .grid--bordered;
+			border-color: $border-color-2;
+
+			list-style-type: none;
+			text-align: center;
+			line-height: 70px;
+
+			background: $color1;
+		}
+
+/* Psuedo Selecto */
+
+	.ps--first-row {
+		background: orange;
+	}
+
+	.ps--last-row {
+		background: red;
+	}
+
+	.ps--last-column {
+		border: 2px solid green;
+	}
+
+	.ps--first-column {
+		border: 2px solid purple;
+	}
+
+	.ps--faded {
+		opacity: .6;
+	}
