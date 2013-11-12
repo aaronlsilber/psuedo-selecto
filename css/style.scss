@@ -24,11 +24,22 @@
 
 /* Styles */
 
+	body {
+		padding: 20px;
+	}
+
+	.text--center {
+		text-align: center;
+	}
 
 	.grid {
 		@extend .cf;
-		margin: 0 0 40px 0;
 		padding: 0;
+
+		@extend .grid;
+		@extend .grid--framed;
+		max-width: 500px;
+		margin: 0px auto 40px;
 	}
 
 	.grid--bordered {
@@ -40,17 +51,10 @@
 		padding: 20px;
 	}
 
-	.grid--1 {
-		@extend .grid;
-		@extend .grid--framed;
-		max-width: 500px;
-		margin: 150px auto 0;
-	}
-
 		.grid__box {
 			float: left;
-			width: 100px;
-			height: 70px;
+			width: 60px;
+			height: 40px;
 			margin: 0 10px 10px 0;
 
 			@extend .grid--bordered;
@@ -58,10 +62,32 @@
 
 			list-style-type: none;
 			text-align: center;
-			line-height: 70px;
+			line-height: 40px;
 
 			background: $color1;
 		}
+
+		.grid__container {
+			float: left;
+			width: 60px;
+			height: 40px;
+
+			list-style-type: none;
+			text-align: center;
+			line-height: 40px;
+		}
+
+	.grid--1 {
+
+	}
+
+	.grid--2 {
+		max-width: 650px;
+		.grid__box {
+			display: inline-block;
+			float: none;
+		}
+	}
 
 /* Psuedo Selecto */
 
@@ -84,3 +110,14 @@
 	.ps--faded {
 		opacity: .6;
 	}
+
+	.ps--spinner {
+		-webkit-animation: spin 2s linear infinite;
+	}
+
+@-webkit-keyframes spin {
+	0% 		{ -webkit-transform: rotate(0deg); }
+	25% 	{ -webkit-transform: rotate(10deg); }
+	75% 	{ -webkit-transform: rotate(-10deg); }
+	100% 	{ -webkit-transform: rotate(0deg); }
+}
