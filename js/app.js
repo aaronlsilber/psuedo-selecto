@@ -13,7 +13,7 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 	 * Magically adds classes like 'first-row' and 'first-column' to a grid
 	 * @return {[type]} [description]
 	 */
-	var PsuedoSelecto = new( function() {
+	var PsuedoSelecto = function() {
 
 		// Setup _root and _s for private vars
 		var _root = this;
@@ -100,7 +100,7 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 			});
 		}
 
-	})();
+	};
 
 	function myCustomTests(gs) {
 		// You can run your own operations!
@@ -113,19 +113,45 @@ window.log = function f(){ log.history = log.history || []; log.history.push(arg
 				cell[1].addClass('ps--faded');
 			}
 		});
+
+		/* Checkerboard! */
+		$.each(gs, function(rowindex, value) {
+			var cell = $(this);
+
+			$.each(cell, function(cellindex, value) {
+
+				if((cellindex+rowindex) % 2 == 1) {
+					$(this).addClass('ps--spinner');
+				}
+			});
+		});
 	}
 
 
 	/*
 	 * Initialize all our modules.
 	 */
+	
+	$(window).load( function() {
 
-	PsuedoSelecto.init({
-		container: $('.grid--1'),
-		cells: $('.grid__box'),
-		testsCallback: function(gs) {
-			myCustomTests(gs);
-		}
+		var gridFloats = new PsuedoSelecto;
+		gridFloats.init({
+			container: $('.grid--1'),
+			cells: $('.grid__box'),
+			testsCallback: function(gs) {
+				myCustomTests(gs);
+			}
+		});
+
+		var gridInlineBlock = new PsuedoSelecto;
+		gridInlineBlock.init({
+			container: $('.grid--2'),
+			cells: $('.grid__box'),
+			testsCallback: function(gs) {
+				myCustomTests(gs);
+			}
+		});
+
 	});
 
 })( jQuery );
