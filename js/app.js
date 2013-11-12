@@ -2,7 +2,6 @@
 
 	/**
 	 * Magically adds classes like 'first-row' and 'first-column' to a grid
-	 * @return {[type]} [description]
 	 */
 	var PsuedoSelecto = function() {
 
@@ -93,6 +92,11 @@
 
 	};
 
+	/* 
+	 * Custom Tests!
+	 * Write your own, win a prize! (hugs)
+	 */
+
 	function myCustomTests(gs) {
 		// You can run your own operations!
 		
@@ -120,7 +124,7 @@
 
 
 	/*
-	 * Initialize all our modules.
+	 * Initialize ALL THE THINGS!.
 	 */
 	
 	$(window).load( function() {
